@@ -1,0 +1,40 @@
+
+//find the maximum of 5 inputs
+const findMax = (...inputs) => {
+    return Math.max(...inputs);
+};
+
+//subtract maximum from a user input and return the result
+const subtractValues = (max, userInput) => {
+    return userInput - max;
+};
+
+const processInputs = (...inputs) => {
+    if (inputs.length !== 5) {
+        console.log("Please provide exactly 5 inputs.");
+        return;
+    }
+
+    const max = findMax(...inputs);
+    if (max > 90) {
+        const userInput = prompt("Please enter a value:"); // Taking user input
+        const result = subtractValues(max, parseInt(userInput));
+
+        if (result > 0) {
+            return Math.pow(result, 3); // Return the cube if the result is positive
+        } else if (result < 0) {
+            return Math.pow(result, 2); // Return the square if the result is negative
+        } else {
+            console.log("aur nahi ho raha hai merese"); // Log the message if the result is 0
+        }
+    } else {
+        return max;
+    }
+};
+
+
+const inputs = [91, 85, 78, 93, 88];
+const result = processInputs(...inputs);
+if (result !== undefined) {
+    console.log(result);
+}
